@@ -1,7 +1,7 @@
 import React from "react";
 // import image1 from "../assets/image1.avif";
-// import { LuLeafyGreen } from "react-icons/lu";
-// import { GiChickenOven } from "react-icons/gi";
+import { LuLeafyGreen } from "react-icons/lu";
+import { GiChickenOven } from "react-icons/gi";
 
 function Card({ name, image, price, type }) {
   return (
@@ -13,7 +13,7 @@ function Card({ name, image, price, type }) {
       <div className="w-full flex justify-between items-center">
         <div className="text-lg font-bold text-green-500">Rs {price}/-</div>
         <div className="flex justify-center items-center gap-2 text-green-500 text-lg font-semibold">
-          {" "}
+          {type === "veg" ? <LuLeafyGreen /> : <GiChickenOven />}
           <span>{type}</span>
         </div>
       </div>
