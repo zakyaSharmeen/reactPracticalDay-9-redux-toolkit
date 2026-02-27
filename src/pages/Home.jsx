@@ -78,19 +78,27 @@ function Home() {
             onClick={() => setShowCart(false)}
           />
         </header>
-        <div>
-          {items.map((item, index) => (
-            <Card2
-              key={index}
-              name={item.name}
-              price={item.price}
-              id={item.id}
-              image={item.image}
-              qty={item.qty}
-            />
-          ))}
-        </div>
-        <PriceCard />
+        {items.length < 1 ? (
+          <div className="text-center text-2xl text-green-500 font-semibold pt-5">
+            YOUR CART IS EMPTY
+          </div>
+        ) : (
+          <>
+            <div>
+              {items.map((item, index) => (
+                <Card2
+                  key={index}
+                  name={item.name}
+                  price={item.price}
+                  id={item.id}
+                  image={item.image}
+                  qty={item.qty}
+                />
+              ))}
+            </div>
+            <PriceCard />
+          </>
+        )}
       </div>
     </div>
   );
