@@ -8,9 +8,6 @@ import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import Card2 from "../components/Card2";
 import PriceCard from "../components/PriceCard";
-// import Card2 from "../components/Card2";
-
-// import { RxCross2 } from "react-icons/rx";
 
 function Home() {
   // let [cate, setCate] = useState(food_items);
@@ -53,28 +50,36 @@ function Home() {
       ) : null}
 
       <div className="w-full  flex flex-wrap gap-5 px-5 justify-center items-center pt-8">
-        {cate.map((item) => {
-          return (
-            <Card
-              name={item.food_name}
-              image={item.food_image}
-              price={item.price}
-              type={item.food_type}
-              id={item.id}
-            />
-          );
-        })}
+        {cate.length < 1 ? (
+          <div className="text-center text-2xl text-green-500 font-semibold pt-5">
+            NO FOOD ITEM FOUND
+          </div>
+        ) : (
+          <>
+            {cate.map((item) => {
+              return (
+                <Card
+                  name={item.food_name}
+                  image={item.food_image}
+                  price={item.price}
+                  type={item.food_type}
+                  id={item.id}
+                />
+              );
+            })}
+          </>
+        )}
       </div>
 
       <div
-        className={`w-full md:w-[40vw] h-[100%] fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500 flex flex-col items-center overflow-auto 
+        className={`w-full md:w-[40vw] h-100% fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500 flex flex-col items-center overflow-auto 
         ${showCart ? "translate-x-0" : "translate-x-full"}`}>
-        <header className="w-[100%] flex justify-between items-center">
+        <header className="w-100% flex justify-between items-center">
           <span className="text-green-400 text-[18px] font-semibold">
             Order items
           </span>
           <RxCross2
-            className="w-[30px] h-[30px] text-green-400 text-[18px] font-semibold cursor-pointer hover:text-gray-600"
+            className="w-30px h-30px text-green-400 text-[18px] font-semibold cursor-pointer hover:text-gray-600"
             onClick={() => setShowCart(false)}
           />
         </header>

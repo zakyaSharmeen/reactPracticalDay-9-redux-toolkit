@@ -1,12 +1,12 @@
 import React from "react";
 import Home from "./pages/Home";
-// import PracticeSearch from "./practice/PracticeSearch";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div>
       <Home />
-      {/* <PracticeSearch /> */}
+      <ToastContainer />
     </div>
   );
 }

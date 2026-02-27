@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function PriceCard() {
   let items = useSelector((state) => state.cart);
@@ -41,7 +42,9 @@ function PriceCard() {
           Rs {total}/-
         </span>
       </div>
-      <button className="w-[80%] p-3 rounded-lg bg-green-500 text-white hover:bg-green-400 transition-all">
+      <button
+        className="w-[80%] p-3 rounded-lg bg-green-500 text-white hover:bg-green-400 transition-all"
+        onClick={() => toast.success("Order placed successfully!")}>
         Place Order
       </button>
     </div>
