@@ -41,6 +41,7 @@ import { LuShoppingBag } from "react-icons/lu";
 import { useContext, useEffect } from "react";
 import { dataContext } from "../context/UserContext";
 import { food_items } from "../Food";
+import { useSelector } from "react-redux";
 
 function Nav() {
   let { input, setInput, setCate, setShowCart } = useContext(dataContext);
@@ -52,6 +53,8 @@ function Nav() {
     );
     setCate(newList);
   }, [input]);
+  let items = useSelector((state) => state.cart);
+  console.log(items);
   return (
     <div className="w-full h-[100px] flex justify-between items-center px-5 md:px-8">
       <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl">
@@ -73,7 +76,7 @@ function Nav() {
         className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative cursor-pointer"
         onClick={() => setShowCart(true)}>
         <span className="absolute top-0 right-2 text-green-500 font-bold text-[18px]">
-          0
+          {items.length}
         </span>
         <LuShoppingBag className="w-[30px] h-[30px] text-green-500" />
       </div>

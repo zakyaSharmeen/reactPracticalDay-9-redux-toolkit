@@ -5,7 +5,10 @@ import { food_items } from "../Food";
 import { useContext } from "react";
 import { dataContext } from "../context/UserContext";
 import { RxCross2 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 import Card2 from "../components/Card2";
+import PriceCard from "../components/PriceCard";
+// import Card2 from "../components/Card2";
 
 // import { RxCross2 } from "react-icons/rx";
 
@@ -24,6 +27,8 @@ function Home() {
       setCate(filteredItems);
     }
   };
+  let items = useSelector((state) => state.cart);
+  console.log(items);
   return (
     <div className="bg-slate-200 w-full min-h-screen">
       <Nav />
@@ -73,8 +78,19 @@ function Home() {
             onClick={() => setShowCart(false)}
           />
         </header>
-
-        <Card2 />
+        <div>
+          {items.map((item, index) => (
+            <Card2
+              key={index}
+              name={item.name}
+              price={item.price}
+              id={item.id}
+              image={item.image}
+              qty={item.qty}
+            />
+          ))}
+        </div>
+        <PriceCard />
       </div>
     </div>
   );
