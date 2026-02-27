@@ -74,14 +74,18 @@ function Home() {
       <div
         className={`w-full md:w-[40vw] h-100% fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500 flex flex-col items-center overflow-auto 
         ${showCart ? "translate-x-0" : "translate-x-full"}`}>
-        <header className="w-100% flex justify-between items-center">
-          <span className="text-green-400 text-[18px] font-semibold">
-            Order items
-          </span>
-          <RxCross2
-            className="w-30px h-30px text-green-400 text-[18px] font-semibold cursor-pointer hover:text-gray-600"
-            onClick={() => setShowCart(false)}
-          />
+        <header className="w-[100%] flex justify-between items-center">
+          <div>
+            <span className="text-green-400 text-[18px] font-semibold">
+              Order items
+            </span>
+          </div>
+          <div>
+            <RxCross2
+              className="w-30px h-30px text-green-400 text-[18px] font-semibold cursor-pointer hover:text-gray-600"
+              onClick={() => setShowCart(false)}
+            />
+          </div>
         </header>
         {items.length < 1 ? (
           <div className="text-center text-2xl text-green-500 font-semibold pt-5">

@@ -33,7 +33,7 @@ function Card({ name, id, image, price, type }) {
               image: image,
             }),
           );
-          toast.success("Item added to cart");
+          toast.success("Item added to cart successfully!");
         }}>
         Add to dish
       </button>
